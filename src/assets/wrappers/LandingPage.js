@@ -20,7 +20,7 @@ const Wrapper = styled.section`
     span {
       color: var(--primary-500);
     }
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
   p {
     line-height: 2;
