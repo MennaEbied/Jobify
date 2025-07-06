@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 
 const NavLinks = ({isBigSidebar}) => {
-const {toggleSidebar, usesr}= useDashboardContext()
+const {toggleSidebar, user}= useDashboardContext()
 
   return (
     <div className="nav-links">
