@@ -10,7 +10,7 @@ const Wrapper = styled.aside`
       min-height: 100vh;
       height: 100%;
       width: 250px;
-      margin-left: -250px;
+      margin-left: -25px;
       transition: margin-left 0.3s ease-in-out;
     }
     .content {
@@ -49,13 +49,9 @@ const Wrapper = styled.aside`
       font-size: 1.5rem;
       margin-right: 1rem;
       display: grid;
-      place-items: center;
     }
     .active {
       color: var(--primary-500);
-    }
-    .pending {
-      background: var(--background-color);
     }
   }
 `;
