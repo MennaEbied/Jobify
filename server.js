@@ -79,6 +79,16 @@ app.delete("/api/v1/jobs/:id", (req, res) => {
   jobs = newJobs;
   res.status(200).json({ msg: "job deleted" });
 });
+
+//Not Found
+app.use('*', (req, res) => {
+  res.status(404).json({msg: "Not Found"})
+})
+
+app.use((err, req, res, next) =>{
+  console.log(err)
+  res.status(500).json({msg:'something went wrong'})
+})
 const port = process.env.PORT || 5100;
 
 app.listen(5100, (req, res) => {
