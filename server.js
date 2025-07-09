@@ -42,6 +42,17 @@ app.post("/api/v1/jobs", (req, res) => {
   });
 
 
+  //Get one job
+  app.get('/api/v1/jobs/:id', (req,res) => {
+    const {id} = req.params 
+    const job = jobs.find((job)=>job.id === id)
+    if(!job){
+      return res.status(400).json({msg:`no jow with id ${id}`})
+    }
+    return res.status(200).json({job})
+  })
+
+
 const port = process.env.PORT || 5100;
 
 app.listen(5100, (req, res) => {
