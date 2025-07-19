@@ -8,6 +8,7 @@ import morgan from "morgan";
 import mongoose from 'mongoose';
 import jobRouter from './routes/jobRouter.js'
 import errorHandlerMiddleware from "./middleware/errorHandlerMiddleware.js";
+import { validateTest } from "./middleware/validationMiddleware.js";
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
@@ -17,6 +18,15 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("hello");
 });
+
+app.post(
+  '/api/v1/test',
+  validateTest,
+  (req, res) => {
+    const { name } = req.body;
+    res.json({ msg: `hello ${name}` });
+  }
+);
 
 app.post("/", (req, res) => {
   console.log(req);
