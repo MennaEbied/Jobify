@@ -7,6 +7,7 @@ const app = express();
 import morgan from "morgan";
 import mongoose from 'mongoose';
 import jobRouter from './routes/jobRouter.js'
+import authRouter from './routes/authRouter.js'
 import errorHandlerMiddleware from "./middleware/errorHandlerMiddleware.js";
 
 if (process.env.NODE_ENV === "development") {
@@ -24,6 +25,7 @@ app.post("/", (req, res) => {
 });
 
 app.use('/api/v1/jobs', jobRouter)
+app.use('/api/v1/auth', authRouter)
 
 //Not Found
 app.use('*', (req, res) => {
