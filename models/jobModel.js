@@ -21,7 +21,7 @@ const JobSchema = new mongoose.Schema(
       default: "my city",
     },
     createdBy:{
-      type: mongoose.types.ObjectId,
+      type: mongoose.Types.ObjectId,
       ref: "User"
     }
   },
