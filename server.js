@@ -9,6 +9,7 @@ import mongoose from 'mongoose';
 import jobRouter from './routes/jobRouter.js'
 import authRouter from './routes/authRouter.js'
 import errorHandlerMiddleware from "./middleware/errorHandlerMiddleware.js";
+import { authenticateUser } from "./middleware/authMiddleware.js";
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
@@ -24,7 +25,7 @@ app.post("/", (req, res) => {
   res.json({ message: "data received", data: req.body });
 });
 
-app.use('/api/v1/jobs', jobRouter)
+app.use('/api/v1/jobs',authenticateUser, jobRouter)
 app.use('/api/v1/auth', authRouter)
 
 //Not Found
