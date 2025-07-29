@@ -6,3 +6,5 @@ export {default as Navbar} from './Navbar'
 export {default as FormRowSelect} from './FormRowSelect'
 export {default as SearchContainer} from './SearchContainer'
 export {default as JobsContainer} from './jobsContainer'
+export {default as JobInfo} from './JobInfo'
+
