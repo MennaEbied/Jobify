@@ -14,12 +14,12 @@ export const createJob = async (req, res) => {
 };
 
 export const getJob = async (req, res) => {
-  const job = await Job.findById(req.paarms.id);
+  const job = await Job.findById(req.params.id);
   return res.status(StatusCodes.OK).json({ job });
 };
 
 export const updateJob = async (req, res) => {
-  const updatedJob = await Job.findByIdAndUpdate(req.paarms.id, req.body, {
+  const updatedJob = await Job.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
   });
   res.status(StatusCodes.OK).json({ msg: "job modified", job: updatedJob });
