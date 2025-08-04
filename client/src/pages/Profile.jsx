@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable no-unused-vars */
 import { FormRow } from "../components";
 import Wrapper from "../assets/wrappers/DashboardFormPage";
@@ -6,6 +7,22 @@ import { useNavigation, Form } from "react-router-dom";
 import customFetch from "../utils/customFetch";
 import { toast } from "react-toastify";
 
+
+export const action = async ({request}) => {
+  const formData = await request.formData()
+  const file = formData.get('avatar')
+  if(file && file.size > 5000){
+    toast.error('image size too large')
+    return null
+  }
+  try {
+    await customFetch.patch('/users/update-user', formData)
+    toast.success('profile updated successfully')
+  } catch (error) {
+    toast.error(error?.response?.data?.msg);
+  }
+  return null
+}
 const Profile = () => {
   const { user } = useOutletContext();
   const { name, lastName, email, location } = user;
