@@ -15,8 +15,8 @@ router.get("/admin/app-stats", [
   getApplicationStats,
 ]);
 router.patch(
-  "/update-user",
-  upload.single("avatar"),
+  '/update-user',
+  upload.single('avatar'),
   validateUpdateUserInput,
   updateUser
 );
