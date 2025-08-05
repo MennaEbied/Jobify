@@ -7,6 +7,7 @@ import {
   updateJob,
   deleteJob,
   createJob,
+  showStats
 } from "../controllers/jobControllers.js";
 import {
   validateJobInput,
@@ -14,11 +15,14 @@ import {
 } from "../middleware/validationMiddleware.js";
 import { checkForTestUser } from "../middleware/authMiddleware.js";
 
-//router.get('/', getAllJobs)
+
 router
   .route("/")
   .get(getAllJobs)
   .post(checkForTestUser, validateJobInput, createJob);
+
+  router.route('/stats').get(showStats)
+
 router
   .route("/:id")
   .get(validateIdParam, getJob)
