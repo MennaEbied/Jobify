@@ -9,5 +9,7 @@ export {default as JobsContainer} from './jobsContainer'
 export {default as JobInfo} from './JobInfo'
 export {default as StatsItem} from './StatsItem'
 export {default as SubmitBtn} from './SubmitBtn'
+export {default as ChartsContainer} from './ChartsContainer'
+export {default as StatsContainer} from './StatsContainer'
 
 
